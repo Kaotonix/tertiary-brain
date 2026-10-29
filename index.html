@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#07080d" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content="Kao's running thoughts, arranged on a brain." />
+    <meta name="apple-mobile-web-app-title" content="Tertiary Brain" />
+    <title>Tertiary Brain</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      .app { display: none; }
+      html.is-open .gate { display: none !important; }
+      html.is-open .app { display: block; }
+    </style>
+    <script>
+      try {
+        if (sessionStorage.getItem("tertiary-brain-open") === "1") {
+          document.documentElement.classList.add("is-open");
+        }
+      } catch (err) {
+        /* sessionStorage can throw in locked-down browsers; the gate still works. */
+      }
+    </script>
+  </head>
+  <body>
+    <div class="atmosphere" aria-hidden="true"></div>
+
+    <section id="gate" class="gate">
+      <svg class="gate-brain" viewBox="60 -40 900 680" aria-hidden="true">
+        <path
+          d="M 172 250 C 148 198 156 134 210 86 C 270 32 368 12 476 14 C 592 16 694 48 760 104 C 822 156 850 216 832 278 C 814 338 752 384 674 410 C 584 440 480 468 370 470 C 270 472 190 430 168 376 C 152 340 156 300 170 262 C 176 248 174 250 172 250 Z"
+        />
+      </svg>
+      <div class="gate-inner">
+        <p class="eyebrow">Kao</p>
+        <h1 id="gate-title">Tertiary Brain</h1>
+        <p class="lede">Enter to think</p>
+        <form id="gate-form" autocomplete="off">
+          <label class="field-label" for="password">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            autocapitalize="off"
+            autocorrect="off"
+            spellcheck="false"
+            enterkeyhint="go"
+            required
+          />
+          <button type="submit">Unlock</button>
+          <p id="gate-error" class="gate-error" role="alert"></p>
+          <p class="hint">Stays open in this tab.</p>
+        </form>
+        <noscript>
+          <p class="noscript">JavaScript has to run for the gate and for the thought file.</p>
+        </noscript>
+      </div>
+    </section>
+
+    <div id="app" class="app">
+      <header class="top">
+        <div class="brand">
+          <p class="eyebrow">Kao's running thoughts</p>
+          <h1>Tertiary Brain</h1>
+        </div>
+        <div class="top-meta">
+          <p id="urgent" class="urgent" hidden></p>
+          <p id="updated" class="updated"></p>
+        </div>
+        <button type="button" id="lock" class="lock">Lock</button>
+      </header>
+
+      <main class="shell">
+        <section class="stage" aria-label="Brain">
+          <div class="chips" id="chips" role="toolbar" aria-label="Filter by lobe"></div>
+          <svg
+            id="brain"
+            class="brain"
+            viewBox="60 -40 900 680"
+            role="group"
+            aria-label="Stylized brain. Life, Work, House, and Professorship."
+          >
+            <defs>
+              <filter id="bloom" x="-40%" y="-40%" width="180%" height="180%">
+                <feGaussianBlur stdDeviation="26" />
+              </filter>
+              <clipPath id="cerebrum">
+                <path
+                  id="sil"
+                  d="M 172 250 C 148 198 156 134 210 86 C 270 32 368 12 476 14 C 592 16 694 48 760 104 C 822 156 850 216 832 278 C 814 338 752 384 674 410 C 584 440 480 468 370 470 C 270 472 190 430 168 376 C 152 340 156 300 170 262 C 176 248 174 250 172 250 Z"
+                />
+              </clipPath>
+              <clipPath id="cbclip">
+                <path d="M 688 248 C 768 216 858 240 886 302 C 910 356 872 414 790 426 C 708 438 646 400 634 344 C 624 296 640 266 688 248 Z" />
+              </clipPath>
+              <radialGradient id="gLife" cx="290" cy="175" r="240" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#ffd4cb" />
+                <stop offset="26%" stop-color="#ef6d60" />
+                <stop offset="70%" stop-color="#a33b42" />
+                <stop offset="100%" stop-color="#3a161c" />
+              </radialGradient>
+              <radialGradient id="gWork" cx="545" cy="145" r="260" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#eaf2ff" />
+                <stop offset="28%" stop-color="#5d95f6" />
+                <stop offset="72%" stop-color="#1e4eae" />
+                <stop offset="100%" stop-color="#121c33" />
+              </radialGradient>
+              <radialGradient id="gHouse" cx="370" cy="400" r="240" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#dcfff6" />
+                <stop offset="32%" stop-color="#2fc6a8" />
+                <stop offset="74%" stop-color="#0e6f5e" />
+                <stop offset="100%" stop-color="#071716" />
+              </radialGradient>
+              <radialGradient id="gProf" cx="760" cy="210" r="200" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#f4edff" />
+                <stop offset="30%" stop-color="#aa82f3" />
+                <stop offset="72%" stop-color="#5d36aa" />
+                <stop offset="100%" stop-color="#1a1030" />
+              </radialGradient>
+              <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.34" />
+                <stop offset="42%" stop-color="#ffffff" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+
+            <ellipse cx="470" cy="250" rx="340" ry="180" fill="#ef6d60" opacity="0.09" filter="url(#bloom)" />
+            <ellipse cx="620" cy="230" rx="280" ry="160" fill="#6ea2ff" opacity="0.08" filter="url(#bloom)" />
+
+            <g class="quiet" aria-hidden="true">
+              <path
+                d="M 688 248 C 768 216 858 240 886 302 C 910 356 872 414 790 426 C 708 438 646 400 634 344 C 624 296 640 266 688 248 Z"
+                fill="#2a2432"
+                stroke="#efe8dc"
+                stroke-opacity="0.5"
+                stroke-width="1.35"
+              />
+              <g clip-path="url(#cbclip)" fill="none" stroke="#ddd4c6" stroke-opacity="0.5" stroke-linecap="round" stroke-width="1.2">
+                <path d="M 660 292 C 750 268 840 280 878 320" />
+                <path d="M 652 324 C 750 298 844 314 882 354" />
+                <path d="M 654 356 C 748 332 840 350 874 386" />
+                <path d="M 672 386 C 756 366 832 380 864 408" />
+              </g>
+            </g>
+
+            <g clip-path="url(#cerebrum)">
+              <rect x="0" y="-40" width="980" height="620" fill="#141820" />
+              <path
+                class="lobe"
+                data-region="life"
+                tabindex="0"
+                role="button"
+                aria-label="Life"
+                fill="url(#gLife)"
+                d="M -40 -30 L 462 -20 C 440 90 408 190 398 292 C 320 298 220 304 80 328 L -40 380 Z"
+              />
+              <path
+                class="lobe"
+                data-region="work"
+                tabindex="0"
+                role="button"
+                aria-label="Work"
+                fill="url(#gWork)"
+                d="M 462 -20 L 648 -20 C 678 110 652 220 608 318 C 560 304 500 296 398 292 C 408 190 440 90 462 -20 Z"
+              />
+              <path
+                class="lobe"
+                data-region="house"
+                tabindex="0"
+                role="button"
+                aria-label="House"
+                fill="url(#gHouse)"
+                d="M -40 360 L 80 328 C 220 304 320 298 398 292 C 500 296 560 304 608 318 C 630 400 650 540 680 560 L -40 560 Z"
+              />
+              <path
+                class="lobe"
+                data-region="professorship"
+                tabindex="0"
+                role="button"
+                aria-label="Professorship"
+                fill="url(#gProf)"
+                d="M 648 -20 L 920 -30 L 920 560 L 640 560 C 650 540 630 400 608 318 C 652 220 678 110 648 -20 Z"
+              />
+              <rect x="80" y="-20" width="800" height="210" fill="url(#sheen)" pointer-events="none" />
+            </g>
+
+            <g class="quiet" aria-hidden="true" fill="none" stroke-linecap="round">
+              <g stroke="#07080d" opacity="0.78">
+                <path d="M 462 22 C 440 90 408 190 398 292" stroke-width="8" />
+                <path d="M 188 312 C 250 302 330 296 398 292 C 500 296 560 304 600 316" stroke-width="7" />
+                <path d="M 648 22 C 678 110 652 220 608 318" stroke-width="7" />
+              </g>
+              <g stroke="#ffffff" opacity="0.18" stroke-width="1.15">
+                <path d="M 470 26 C 448 96 416 196 406 292" />
+                <path d="M 192 320 C 254 310 334 304 406 300" />
+                <path d="M 656 28 C 686 116 660 226 616 318" />
+              </g>
+              <g stroke="#140c12" stroke-width="1.55" opacity="0.28">
+                <path d="M 236 112 C 286 148 274 206 236 244" />
+                <path d="M 300 86 C 356 138 338 206 304 252" />
+                <path d="M 250 160 C 292 186 286 220 252 246" />
+                <path d="M 490 78 C 540 122 524 178 496 220" />
+                <path d="M 560 100 C 608 150 592 200 568 236" />
+                <path d="M 700 140 C 742 178 728 214 706 246" />
+                <path d="M 230 350 C 320 338 410 348 490 336" />
+                <path d="M 200 386 C 310 374 410 388 490 372" />
+                <path d="M 230 414 C 320 408 400 418 470 404" />
+              </g>
+              <use href="#sil" stroke="#f7f2ea" stroke-opacity="0.8" stroke-width="1.75" />
+            </g>
+
+            <g class="lobe-labels" aria-hidden="true">
+              <text id="label-life" class="region-label" x="268" y="246" text-anchor="middle">Life</text>
+              <text id="label-work" class="region-label" x="530" y="228" text-anchor="middle">Work</text>
+              <text id="label-house" class="region-label" x="340" y="436" text-anchor="middle">House</text>
+              <text id="label-professorship" class="region-label region-label-long" x="742" y="268" text-anchor="middle">Professorship</text>
+            </g>
+            <g id="nodes"></g>
+          </svg>
+        </section>
+
+        <aside class="panel" id="panel" aria-label="Thoughts">
+          <div id="panel-body">
+            <p class="status-line">Reading thoughts…</p>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <div id="tip" class="tip" role="tooltip" hidden></div>
+    <div id="live" class="sr-only" aria-live="polite"></div>
+
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

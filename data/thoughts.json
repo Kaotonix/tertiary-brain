@@ -1,0 +1,152 @@
+{
+  "updated": "2026-10-29",
+  "categories": [
+    {
+      "id": "life",
+      "label": "Life",
+      "thoughts": [
+        {
+          "id": "yosemite-alyssa",
+          "title": "Yosemite with Alyssa",
+          "notes": "Weekend in Yosemite with Alyssa. Leave around 3pm PT Friday, October 30. Back around 4pm PT Sunday, November 1.",
+          "status": "active",
+          "priority": "high",
+          "due": "2026-10-30",
+          "tags": ["travel", "alyssa"]
+        },
+        {
+          "id": "switch-2-zelda-40th",
+          "title": "Switch 2 Zelda 40th",
+          "notes": "Still hunting a Nintendo Switch 2 Zelda 40th Anniversary Edition at MSRP. Watch restocks and skip the markup.",
+          "status": "waiting",
+          "priority": "medium",
+          "tags": ["shopping"]
+        },
+        {
+          "id": "bouldering-chris",
+          "title": "Bouldering with Chris",
+          "notes": "Sign up for bouldering with Chris next week.",
+          "status": "active",
+          "priority": "high",
+          "due": "Next week",
+          "tags": ["chris"]
+        },
+        {
+          "id": "pumpkin-carving",
+          "title": "Pumpkin carving",
+          "notes": "Pumpkin carving with family. Thursday, October 29, 5-6pm PT.",
+          "status": "active",
+          "priority": "high",
+          "due": "2026-10-29",
+          "tags": ["family"]
+        }
+      ]
+    },
+    {
+      "id": "work",
+      "label": "Work",
+      "thoughts": [
+        {
+          "id": "contracts-project",
+          "title": "Contracts project",
+          "notes": "Finish the contracts project.",
+          "status": "active",
+          "priority": "medium",
+          "tags": ["contracts"]
+        },
+        {
+          "id": "market-intel-reports",
+          "title": "Market intel reports",
+          "notes": "Make headway on the market intel monthly and yearly reports.",
+          "status": "active",
+          "priority": "medium",
+          "tags": ["reports"]
+        },
+        {
+          "id": "rudy-snowflake",
+          "title": "Rudy and Snowflake",
+          "notes": "Remind Rudy about Snowflake.",
+          "status": "waiting",
+          "priority": "medium",
+          "tags": ["snowflake"]
+        }
+      ]
+    },
+    {
+      "id": "house",
+      "label": "House",
+      "thoughts": [
+        {
+          "id": "interior-work",
+          "title": "Interior work",
+          "notes": "Remind the contractor about the rest of the interior work.",
+          "status": "waiting",
+          "priority": "medium",
+          "tags": ["contractor"]
+        },
+        {
+          "id": "toilet-flusher",
+          "title": "Toilet flusher",
+          "notes": "The toilet flusher is broken. Fix it or replace it.",
+          "status": "active",
+          "priority": "medium",
+          "tags": ["repair"]
+        },
+        {
+          "id": "declutter-sell",
+          "title": "Declutter and sell",
+          "notes": "Start decluttering and selling things. Prep for a house sale next year.",
+          "status": "active",
+          "priority": "medium",
+          "tags": ["sale"]
+        },
+        {
+          "id": "gate-uncle-keith",
+          "title": "Gate for Uncle Keith",
+          "notes": "Ask the contractor about a gate for Uncle Keith.",
+          "status": "waiting",
+          "priority": "medium",
+          "tags": ["contractor"]
+        },
+        {
+          "id": "sprinklers-yard",
+          "title": "Sprinklers and yard",
+          "notes": "Sprinklers and the yard need contractors.",
+          "status": "active",
+          "priority": "medium",
+          "tags": ["yard"]
+        },
+        {
+          "id": "room-fans",
+          "title": "Fans in every room",
+          "notes": "Put fans in all the rooms. Part of getting the house ready to sell next year.",
+          "status": "active",
+          "priority": "low",
+          "tags": ["sale"]
+        }
+      ]
+    },
+    {
+      "id": "professorship",
+      "label": "Professorship",
+      "thoughts": [
+        {
+          "id": "it15-curriculum",
+          "title": "IT 15 curriculum",
+          "notes": "Create the rest of this semester's curriculum for IT 15, Sierra College adjunct.",
+          "status": "active",
+          "priority": "medium",
+          "tags": ["it-15", "sierra"]
+        },
+        {
+          "id": "grade-paperwork",
+          "title": "Grade the paperwork",
+          "notes": "Grade all the paperwork.",
+          "status": "active",
+          "priority": "medium",
+          "tags": ["grading"]
+        }
+      ]
+    }
+  ]
+}
